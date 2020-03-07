@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import sigma from 'sigma';
-declare const sigma: any;
+// declare module sigma: any;
 
 @Component({
   selector: 'app-graph',
@@ -14,20 +14,18 @@ export class GraphComponent implements OnInit {
   constructor() { }
 
 
-  private addLayer(count: any, layer:any, name: string, previous: string) {
-    for (var i = 0; i < count; i++) {
+  private addLayer(count: any, layer: any, name: string, previous?: string) {
+    for (let i = 0; i < count; i++) {
       this.graph.graph.addNode({
         id: `${name}-${i}`,
-        x: i/2,
+        x: i / 2,
         y: layer,
         label: `${name}-${i}`,
         size: 4
       });
-      if (previous == '') {
-        continue
-      }
+      if (!previous) { continue; }
 
-      for (var j = 0; j < 5; j ++) {
+      for (let j = 0; j < 5; j ++) {
         this.graph.graph.addEdge({
           id: `${previous}${j}-${name}${i}`,
           source: `${previous}-${j}`,
@@ -43,8 +41,8 @@ export class GraphComponent implements OnInit {
     this.graph.settings({
       edgeColor: 'default',
       defaultEdgeColor: '#999'
-    })
-    this.addLayer(5, 0, 'input', '');
+    });
+    this.addLayer(5, 0, 'input');
     this.addLayer(10, 1, 'dense', 'input');
   }
 
