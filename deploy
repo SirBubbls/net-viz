@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+ng build --base-href net-viz-app;
+cd ./dist/net-viz;
+git init;
+git remote add origin git@github.com:SirBubbls/net-viz-app.git;
+git add .;
+git commit -m ".";
+git push origin master --force;
+cd ..;
+rm -rf net-viz;
