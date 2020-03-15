@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ng build --base-href="https://sirbubbls.github.io/Net-Viz/";
+ng build --base-href="https://sirbubbls.github.io/net-viz/";
 git add docs;
 git commit -m "deployment";
 git push origin master;
